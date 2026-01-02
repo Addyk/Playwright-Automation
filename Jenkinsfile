@@ -31,6 +31,11 @@ pipeline {
         bat 'npx playwright test --project=chromium'
       }
     }
+
+    stage('List report files') {
+      steps {
+        bat 'dir playwright-report'
+      }
   }
 
   post {
