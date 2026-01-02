@@ -36,20 +36,21 @@ pipeline {
       steps {
         bat 'dir playwright-report'
       }
-  }
+    }
+  }  // ✅ closes stages
 
   post {
     always {
       archiveArtifacts artifacts: 'playwright-report/**, test-results/**', allowEmptyArchive: true
+
       publishHTML(target: [
-      reportDir: 'playwright-report',
-      reportFiles: 'index.html',
-      reportName: 'Playwright HTML Report',
-      keepAll: true,
-      alwaysLinkToLastBuild: true,
-      allowMissing: true
-    ])
+        reportDir: 'playwright-report',
+        reportFiles: 'index.html',
+        reportName: 'Playwright HTML Report',
+        keepAll: true,
+        alwaysLinkToLastBuild: true,
+        allowMissing: true
+      ])
     }
-    
   }
 }
