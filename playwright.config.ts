@@ -29,14 +29,18 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    headless: false
+    headless: false,
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
+      use: { ...devices['Desktop Chrome'],
+         baseURL: 'https://the-internet.herokuapp.com',
+
+       },
+      
     }
 
     /* Test against mobile viewports. */

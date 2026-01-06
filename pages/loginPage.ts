@@ -29,6 +29,11 @@ export class loginPage{
 
     async expectFlashContains(text:string){
         await expect(this.flash).toContainText(text);
+        await this.flash.screenshot({path:`screenshots/flash-${Date.now()}.png`});
+    }
+
+       async getRowByText(text: string) {
+        return await this.page.locator('table#table1 tbody tr').filter({ hasText: text });
     }
 
 }
