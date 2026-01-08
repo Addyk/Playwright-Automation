@@ -33,10 +33,14 @@ pipeline {
     }
 
     stage('List report files') {
-      steps {
-        bat 'dir playwright-report'
-      }
+  steps {
+    dir('Playwright-Automation') {
+      bat 'dir playwright-report'
+      bat 'dir playwright-report\\assets'
     }
+  }
+}
+
   }  // ✅ closes stages
 
   post {
