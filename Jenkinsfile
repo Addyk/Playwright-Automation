@@ -35,11 +35,12 @@ pipeline {
     stage('List report files') {
   steps {
     dir('Playwright-Automation') {
-      bat 'dir playwright-report'
-      bat 'dir playwright-report\\assets'
+      bat 'if exist playwright-report (dir playwright-report) else (echo "playwright-report NOT FOUND")'
+      bat 'if exist playwright-report\\assets (dir playwright-report\\assets) else (echo "assets NOT FOUND")'
     }
   }
 }
+
 
   }  // ✅ closes stages
 
@@ -48,7 +49,7 @@ pipeline {
       archiveArtifacts artifacts: 'playwright-report/**, test-results/**', allowEmptyArchive: true
 
       publishHTML(target: [
-        reportDir: 'playwright-report',
+        reportDir: 'Playwright-Automation/playwright-report',
         reportFiles: 'index.html',
         reportName: 'Playwright HTML Report',
         keepAll: true,
