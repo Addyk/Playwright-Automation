@@ -7,6 +7,7 @@ export class loginPage{
     readonly password: Locator;
     readonly loginBtn: Locator;
     readonly flash: Locator;
+   
 
     constructor(page:Page){
         this.page=page;
@@ -34,6 +35,10 @@ export class loginPage{
 
        async getRowByText(text: string) {
         return await this.page.locator('table#table1 tbody tr').filter({ hasText: text });
+    }
+
+    async refresh(){
+        await this.page.reload();
     }
 
 }
