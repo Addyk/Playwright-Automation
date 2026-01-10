@@ -16,6 +16,7 @@ test('@regression @login Valid user should be able to login',async({page})=>
   await secure.expectFlashContains(' You logged out of the secure area!');
 });
 
+
 test('@regression @login Invalid user should not be able to login', async({page})=>
 {
   const login=new loginPage(page);

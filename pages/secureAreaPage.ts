@@ -7,6 +7,7 @@ readonly page: Page;
   readonly logoutLink: Locator;
   readonly flash: Locator;
 
+
     constructor(page:Page){
     this.page = page;
     this.heading = page.getByRole('heading', { name: ' Secure Area',exact: true });
