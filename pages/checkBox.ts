@@ -8,6 +8,8 @@ export class checkBox{
 
         constructor(page:Page){
             this.page=page;
+            this.checkbox1=page.getByRole('heading', { name: 'Dropdown List' });
+            this.checkbox2=page.getByRole('heading', { name: 'Dropdown List' });
         }
 
         async open(){
