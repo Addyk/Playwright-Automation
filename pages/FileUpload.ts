@@ -36,7 +36,7 @@ export class FileUpload{
         await this.chooseFileButton.setInputFiles(filePath);
         await this.uploadButton.click();
         await expect(this.FileUploadedHeader).toHaveText('File Uploaded!');
-        await expect(this.uploadedFileName).toHaveText('TestFile.txt');
+        await expect(this.uploadedFileName).toHaveText(filePath);
     }
 
 
